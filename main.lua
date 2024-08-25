@@ -1,15 +1,22 @@
-_G.love = require("love")
-
+--{ Output is a white ball on a black screen that moves left and right using arrow keys --}
+--{ Unable to load error was fixed --}
 function love.load()
-    _G.number = 0
 
+player = {}
+player.x = 400
+player.y = 200
 end
 
 function love.update(dt)
-number = number + 1
-end
+    if love.keyboard.isDown("right") then
+    player.x = player.x + 3
+    end
+    if love.keyboard.isDown("left") then
+        player.x = player.x -3
+        end
+    end
 
 function love.draw()
-love.graphics.print("Hello World")
---{ prints hello world to a black screen}
+love.graphics.circle("fill", player.x, player.y, 100)
+
 end
